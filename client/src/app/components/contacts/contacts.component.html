@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="divint m-4 justify-content-center">
+    <form [formGroup]="contactform" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="firstname" class="form-label">First Name</label>
+        <input
+          type="text"
+          formControlName="first_name"
+          class="form-control"
+          id="firstname"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="lastname" class="form-label">Last Name</label>
+        <input
+          type="text"
+          formControlName="last_name"
+          class="form-control"
+          id="lastname"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="firstname" class="form-label">Phone</label>
+        <input
+          type="text"
+          formControlName="phone"
+          class="form-control"
+          id="phone"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+  <div class="row">
+    <!-- <div class="col-md-6"> -->
+    <div
+      class="card text-white bg-dark m-3"
+      *ngFor="let item of allContacts"
+      style="width: 18rem"
+    >
+      <div class="card-header">{{ item.first_name }} {{ item.last_name }}</div>
+      <div class="card-body">
+        <h5 class="card-title">{{ item.phone }}</h5>
+      </div>
+      <span
+        class="badge badge-danger mb-1 badge-sm"
+        (click)="DeleteContact(item)"
+        >Delete</span
+      >
+    </div>
+  </div>
+</div>
